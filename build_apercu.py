@@ -76,7 +76,7 @@ section h2{font-size:clamp(22px,5vw,30px);margin-bottom:6px}
 .box{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}.box h3{margin-bottom:6px}.box ol{padding-left:20px;color:var(--mut);font-size:15px}.box li{margin:4px 0}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}
 summary{font-weight:700;cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}
-summary::after{content:"+";float:right;color:var(--or2);font-size:20px;line-height:1}details[open] summary::after{content:"–"}
+.faqmain>summary{font-size:22px;font-weight:800;padding:18px 0;border-bottom:1px solid var(--line)}.faqmain[open]>summary{margin-bottom:6px}summary::after{content:"+";float:right;color:var(--or2);font-size:20px;line-height:1}details[open] summary::after{content:"–"}
 details p{color:var(--mut);margin-top:8px;font-size:15px}
 .mail{background:linear-gradient(135deg,#d3540022,#1a1d24);border:1px solid #d3540055;border-radius:18px;padding:20px;text-align:center}
 .mail form{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.mail input[type=email]{flex:1 1 200px;padding:13px;border-radius:10px;border:1px solid #ffffff30;background:#12151b;color:#fff;font-size:16px}
@@ -116,6 +116,23 @@ LB=r'''
 .lb.z img{width:230%}
 '''
 EXTRA=r'''
+.menusec{padding:7px 0}
+.menu{padding:0;border-radius:18px;background:linear-gradient(145deg,var(--card2),var(--card));border:1px solid var(--line);box-shadow:0 6px 18px #0004;margin:0}
+.menu>summary{display:flex;align-items:center;gap:14px;padding:15px 16px}
+.menu>summary i{font-style:normal;flex:none;width:46px;height:46px;border-radius:14px;background:#d3540026;border:1px solid #d3540044;display:grid;place-items:center;font-size:23px}
+.menu>summary span{display:block;font-size:17px;font-weight:800;line-height:1.25}
+.menu>summary small{display:block;font-weight:500;color:var(--mut);font-size:13px;margin-top:2px}
+.menu>summary::after,.menu[open]>summary::after{content:"";float:none;margin-left:auto;flex:none;width:9px;height:9px;border-right:2px solid var(--or2);border-bottom:2px solid var(--or2);transform:rotate(45deg);transition:transform .2s;font-size:0;margin-right:4px}
+.menu[open]>summary::after{transform:rotate(-135deg);margin-top:6px}
+.menu .mb{padding:14px 16px 18px;border-top:1px solid var(--line)}
+.menu .mb details{background:#14171d}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;background:#0f1115f2;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:6px 4px calc(6px + env(safe-area-inset-bottom))}
+.tabbar a{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;padding:5px 2px;border-radius:12px;color:var(--mut);text-decoration:none;font-size:11px;font-weight:600;line-height:1.1;text-align:center}
+.tabbar a i{font-style:normal;font-size:20px;line-height:1.1;filter:grayscale(.6);opacity:.85}
+.tabbar a.on{color:var(--or2);background:#d3540018}.tabbar a.on i{filter:none;opacity:1}
+body.hastab{padding-bottom:84px}
+html{scroll-behavior:smooth}
+
 h1,h2,h3,.logo,.btn{font-family:Poppins,"Segoe UI",system-ui,sans-serif}
 .hero{padding:30px 0 34px;text-align:center;background:radial-gradient(ellipse at 50% -10%,#d3540044,transparent 62%)}
 .fan{position:relative;height:250px;max-width:340px;margin:6px auto 22px}
@@ -174,13 +191,14 @@ idx=head('Thaï Malin · Mini-guides de voyage en Asie, aperçu gratuit','Feuill
 <section class="alt2" id="video"><div class="w"><h2>Regarde l’appli en action</h2><p class="lead">Quelqu’un entre son code, ses dates, son vol, son programme… jusqu’au mode hors ligne.</p>
 <div class="vid"><video controls playsinline preload="none" poster="video/poster.jpg" src="video/demo-hub.mp4"></video></div></div></section>
 
-<section id="pourquoi"><div class="w"><h2>Pourquoi Thaï Malin ?</h2><p class="lead">Des guides pensés pour partir l’esprit tranquille.</p>
+<section id="pourquoi" class="menusec"><div class="w"><details class="menu"><summary><i>✨</i><span>Pourquoi Thaï Malin ?<small>Des guides pensés pour partir l’esprit tranquille</small></span></summary><div class="mb">
 <div class="why">
 <div><div class="i">🗺️</div><b>Clair et visuel</b><p>Une page = un sujet : itinéraires, budget, culture, bons plans, avec des infographies faciles à lire.</p></div>
 <div><div class="i">✈️</div><b>Comment y aller</b><p>Les vols, les escales, les formalités et le budget, pour un départ de La Réunion comme de France.</p></div>
 <div><div class="i">📱</div><b>Dans ta poche</b><p>Tout s’ouvre sur ton téléphone, et reste disponible sans internet, même en plein voyage.</p></div>
 <div><div class="i">🌺</div><b>Créé à La Réunion</b><p>Des conseils concrets, écrits par quelqu’un qui prépare ces voyages, pour tous ceux qui rêvent d’Asie.</p></div>
-</div></div></section>
+</div>
+</div></details></div></section>
 
 <section class="alt2" id="comment"><div class="w"><h2>Comment ça marche ?</h2><p class="lead">Trois étapes, tout se passe sur ton téléphone.</p>
 <div class="steps">
@@ -189,8 +207,8 @@ idx=head('Thaï Malin · Mini-guides de voyage en Asie, aperçu gratuit','Feuill
 <div class="step"><div class="n">3</div><h3>Ouvre « Mon voyage »</h3><p>Entre ton code, installe l’appli sur ton écran d’accueil : ton guide et ton voyage restent disponibles hors ligne.</p></div>
 </div></div></section>
 
-<section id="hub"><div class="w"><h2>« Mon voyage » : ton compagnon de départ</h2><p class="lead">Une appli web incluse avec ton achat, qui range tout ton voyage au même endroit. Fais défiler :</p></div>
-<div class="w"><div class="shots">{sh}</div>
+<section id="hub" class="menusec"><div class="w"><details class="menu"><summary><i>📱</i><span>« Mon voyage »<small>Ton compagnon de départ, inclus avec ton achat</small></span></summary><div class="mb"><p class="lead">Une appli web incluse avec ton achat, qui range tout ton voyage au même endroit. Fais défiler :</p>
+<div class="shots">{sh}</div>
 <div class="feat">
 <div><b>📅 Dates et compte à rebours</b>Tu indiques ton départ et ton retour, l’appli compte les jours.</div>
 <div><b>✈️ Vol et rappels</b>Numéro de vol, horaires : les rappels (enregistrement, formalités, départ, retour) se créent tout seuls et s’exportent vers ton agenda.</div>
@@ -200,24 +218,25 @@ idx=head('Thaï Malin · Mini-guides de voyage en Asie, aperçu gratuit','Feuill
 <div><b>💱 Convertisseur</b>Euros en monnaie locale, avec un taux modifiable.</div>
 <div><b>📚 Tous tes guides</b>Tes mini-guides s’ouvrent depuis la même appli.</div>
 <div><b>💾 Sauvegarde</b>Exporte et restaure ton voyage, ou commence-en un nouveau.</div>
-</div></div></section>
+</div></div></details></div></section>
 
 <section class="alt2" id="install"><div class="w"><h2>Installer sur ton téléphone</h2><p class="lead">Facultatif, mais pratique : l’appli s’ouvre comme une vraie appli et marche hors ligne.</p>
 <div class="two"><div class="box"><h3>🍎 iPhone (Safari)</h3><ol><li>Ouvre le lien du hub dans Safari.</li><li>Touche le bouton Partager.</li><li>Choisis « Sur l’écran d’accueil ».</li></ol></div>
 <div class="box"><h3>🤖 Android (Chrome)</h3><ol><li>Ouvre le lien du hub dans Chrome.</li><li>Touche le menu ⋮.</li><li>Choisis « Installer l’application » ou « Ajouter à l’écran d’accueil ».</li></ol></div></div></div></section>
 
-<section id="faq"><div class="w"><h2>Questions fréquentes</h2><p class="lead"> </p>
+<section id="faq" class="menusec"><div class="w"><details class="menu"><summary><i>❓</i><span>Questions fréquentes<small>Code, paiement, accès, hors-ligne</small></span></summary><div class="mb">
 <details><summary>Comment je reçois mon code ?</summary><p>Juste après le paiement, un e-mail automatique t’envoie ton code et le lien d’accès. Pense à regarder tes courriers indésirables.</p></details>
 <details><summary>Combien de temps le code est-il valable ?</summary><p>Une fois entré sur ton téléphone, l’accès reste ouvert 12 mois sur cet appareil (Édition 2026).</p></details>
 <details><summary>Ça marche sans internet ?</summary><p>Oui, une fois le guide ouvert et l’appli installée, tu peux consulter ton programme, tes documents et ta checklist hors ligne. La météo en direct et les liens demandent une connexion.</p></details>
 <details><summary>Le paiement est-il sécurisé ?</summary><p>Le paiement passe par Stripe, qui gère la carte bancaire (Apple Pay et Google Pay selon ton téléphone). Thaï Malin ne voit jamais ton numéro de carte.</p></details>
 <details><summary>Qu’est-ce que « Édition 2026 » ?</summary><p>Les guides sont mis à jour par édition. Ton achat te donne l’édition en cours ; une nouvelle édition sera annoncée sur thaimalin.fr.</p></details>
 <details><summary>Mes données de voyage sont-elles envoyées quelque part ?</summary><p>Non. Tes dates, ton vol, ton programme et tes documents restent enregistrés uniquement sur ton téléphone.</p></details>
-</div></section>
+</div></details></div></section>
 
 <section id="news" class="mailsec" hidden><div class="w"><div class="mail"><h2>Être prévenu des nouveaux guides</h2><p class="lead" style="margin-bottom:0">Facultatif : un e-mail seulement quand un nouveau guide sort. Tu peux continuer à lire les aperçus sans rien remplir.</p>
 <form id="mailForm"><input type="email" id="mailIn" placeholder="ton@email.com" required autocomplete="email"><button class="btn pri" type="submit">Me prévenir</button>
 <label><input type="checkbox" id="mailOk" required> J’accepte de recevoir un e-mail à chaque nouveau guide. Désinscription possible à tout moment.</label></form><p class="ok" id="mailDone">Merci ! Tu seras prévenu(e).</p></div></div></section>
+<nav class="tabbar" aria-label="Navigation"><a href="#guides" data-t="guides"><i>📚</i>Guides</a><a href="#video" data-t="video"><i>▶️</i>Vidéo</a><a href="#pourquoi" data-t="pourquoi"><i>✨</i>Pourquoi</a><a href="#hub" data-t="hub"><i>📱</i>Mon voyage</a><a href="#faq" data-t="faq"><i>❓</i>FAQ</a></nav>
 </main>"""+foot%('','','')
 open(R+'/index.html','w',encoding='utf-8').write(idx)
 
@@ -264,6 +283,17 @@ open(R+'/config.js','w').write('''// Inscription e-mail facultative (nouveaux gu
 window.APERCU={SUPABASE_URL:"",SUPABASE_ANON_KEY:""};
 ''')
 open(R+'/app.js','w').write('''(function(){
+var tb=document.querySelector('.tabbar');
+if(tb){document.body.classList.add('hastab');
+ var tabs=[].slice.call(tb.querySelectorAll('a'));
+ tabs.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();
+  var el=document.getElementById(a.getAttribute('data-t'));if(!el)return;
+  var d=el.querySelector('details.menu');if(d)d.open=true;
+  window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-60,behavior:'smooth'});})});
+ function spy(){var cur=tabs[0];tabs.forEach(function(a){var el=document.getElementById(a.getAttribute('data-t'));if(el&&el.getBoundingClientRect().top<=window.innerHeight*0.5)cur=a});
+  if(window.innerHeight+window.pageYOffset>=document.documentElement.scrollHeight-4)cur=tabs[tabs.length-1];
+  tabs.forEach(function(a){a.classList.toggle('on',a===cur)})}
+ window.addEventListener('scroll',spy,{passive:true});spy();}
 var seg=document.querySelector('.seg');
 if(seg){var img=document.getElementById('pv1img'),cap=document.getElementById('pv1cap'),bt=seg.querySelectorAll('button');
  function set(k){bt.forEach(function(b){b.classList.toggle('on',b.getAttribute('data-from')===k)});img.src=img.getAttribute('data-'+k);cap.textContent=cap.getAttribute('data-'+k);img.alt=cap.textContent;try{localStorage.setItem('tm-from',k)}catch(e){}}
