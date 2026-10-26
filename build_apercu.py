@@ -116,6 +116,11 @@ LB=r'''
 .lb.z img{width:230%}
 '''
 EXTRA=r'''
+.steps.acc{grid-template-columns:1fr!important;gap:10px;max-width:680px}
+.stp>summary i{background:var(--or);border:0;color:#fff;font-weight:800;font-size:18px;border-radius:50%;width:38px;height:38px}
+.stp>summary span{font-size:16px}
+.stp .mb p{color:var(--mut);font-size:15px;margin:0}
+
 .menusec{padding:7px 0}
 .menu{padding:0;border-radius:18px;background:linear-gradient(145deg,var(--card2),var(--card));border:1px solid var(--line);box-shadow:0 6px 18px #0004;margin:0}
 .menu>summary{display:flex;align-items:center;gap:14px;padding:15px 16px}
@@ -200,11 +205,11 @@ idx=head('Thaï Malin · Mini-guides de voyage en Asie, aperçu gratuit','Feuill
 </div>
 </div></details></div></section>
 
-<section class="alt2" id="comment"><div class="w"><h2>Comment ça marche ?</h2><p class="lead">Trois étapes, tout se passe sur ton téléphone.</p>
-<div class="steps">
-<div class="step"><div class="n">1</div><h3>Choisis ton guide</h3><p>Feuillette 3 pages gratuites de chaque guide pour voir si le style et le contenu te conviennent.</p></div>
-<div class="step"><div class="n">2</div><h3>Reçois ton code</h3><p>Après le paiement sécurisé Stripe, ton code d’accès arrive automatiquement par e-mail.</p></div>
-<div class="step"><div class="n">3</div><h3>Ouvre « Mon voyage »</h3><p>Entre ton code, installe l’appli sur ton écran d’accueil : ton guide et ton voyage restent disponibles hors ligne.</p></div>
+<section class="alt2" id="comment"><div class="w"><h2>Comment ça marche ?</h2><p class="lead">Trois étapes, tout se passe sur ton téléphone. Touche une étape pour voir le détail.</p>
+<div class="steps acc">
+<details class="menu stp"><summary><i>1</i><span>Choisis ton guide<small>Feuillette avant d’acheter</small></span></summary><div class="mb"><p>Touche « 3 pages gratuites » sur le guide qui t’intéresse (Thaïlande, Vietnam, Laos, Cambodge ou Plages) et feuillette 3 pages pour voir si le style et le contenu te conviennent. Tu peux zoomer sur chaque page. Quand tu es décidé, touche « Acheter ce guide ».</p></div></details>
+<details class="menu stp"><summary><i>2</i><span>Reçois ton code<small>Par e-mail, tout de suite</small></span></summary><div class="mb"><p>Le paiement est sécurisé par Stripe (carte, Apple Pay ou Google Pay selon ton téléphone). Juste après, un e-mail automatique t’envoie ton code d’accès et le lien. Pense à regarder tes courriers indésirables si tu ne vois rien.</p></div></details>
+<details class="menu stp"><summary><i>3</i><span>Ouvre « Mon voyage »<small>Installe l’appli, c’est prêt</small></span></summary><div class="mb"><p>Entre ton code dans « Mon voyage », puis installe l’appli sur ton écran d’accueil. Ton guide et ton voyage restent disponibles hors ligne, même en plein voyage, sans internet.</p></div></details>
 </div></div></section>
 
 <section id="hub" class="menusec"><div class="w"><details class="menu"><summary><i>📱</i><span>« Mon voyage »<small>Ton compagnon de départ, inclus avec ton achat</small></span></summary><div class="mb"><p class="lead">Une appli web incluse avec ton achat, qui range tout ton voyage au même endroit. Fais défiler :</p>
